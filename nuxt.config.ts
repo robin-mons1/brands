@@ -15,6 +15,13 @@ export default defineNuxtConfig({
       BASE_URL: process.env.BASE_URL,
     },
   },
+  supabase: {
+    redirectOptions: {
+      login: '/login',
+      callback: '/callback',
+      exclude: []
+    }
+  },
   app: {
     head: {
       script: [

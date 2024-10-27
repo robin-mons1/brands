@@ -3,25 +3,15 @@
         layout: 'login'
     });
 
-    const modelActive = ref(false)
-    const verifying = ref(false);
-    const email = ref("");
-
-    const user = useSupabaseUser();
-
-    function verify(value: string) {
-        email.value = value;
-        verifying.value = true;
-    }
 </script>
 
 <template>
-    <BaseModelVue :model-active="modelActive" @close="modelActive = false">
-        <LoginDialog v-if="!verifying" @verify="verify"></LoginDialog>
-        <HomeVerify :email="email" v-else></HomeVerify>
-    </BaseModelVue>
-    <div>
-        <button @click="modelActive = true" class="underline">you must login</button>
-    </div>
-    <div v-if="user">i am logged in</div>
+    <section class="flex-grow flex h-full">
+        <div class="flex-grow w-1/2 bg-black border-r border-white border-opacity-20 flex justify-center items-center">
+            <LoginDialog></LoginDialog>
+        </div>
+        <div class="h-full w-1/2 bg-[#090909] justify-center flex items-center">
+           <img class="w-2/3" src="/home.jfif" alt="best friend">
+        </div>
+    </section>
 </template>
